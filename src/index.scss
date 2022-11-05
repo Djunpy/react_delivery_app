@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Inter:wght@300;400;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  transition: all .2s linear;
+}
+
+body {
+  @apply bg-slate-100;
+  font-family: 'Rubik', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  li {
+    list-style: none;
+  }
+}
+
+input::placeholder {
+  font: inherit;
+}
+
+.header{
+  .header__box{
+
+    .header__logo{
+      img{
+        @apply object-contain h-24 w-16;
+      }
+    }
+    .menu{
+      @apply hidden sm:pb-5 sm:block transition-transform order-first h-screen sm:h-auto w-52 sm:w-auto sm:order-none fixed sm:static top-1 bg-white sm:bg-transparent z-50;
+      &.show-menu{
+        @apply block;
+      }
+      .menu__wrap{
+        @apply absolute sm:static p-3 sm:p-0 top-[20%] translate-y-2/4 flex flex-col sm:flex-row sm:items-center gap-5;
+        .menu__item{
+          &.active{
+            @apply text-red-600;
+          }
+        }
+      }
+    }
+  }
+}
+
+.category__btn{
+  .btn__box{
+    .btn{
+      @apply flex items-center justify-center gap-1 rounded-lg hover:bg-white p-1;
+      &.active{
+        @apply bg-white;
+      }
+    }
+  }
+}
+
+.cart {
+  height: calc(100vh - 150px);
+}
+
+.common__section {
+  background: linear-gradient(#212245b2, #212245b2), url('./assets/images/banner.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 80px 0px;
+}
+
+.paginationBtn {
+  @apply flex items-center gap-3;
+
+  li {
+    a {
+      @apply bg-red-600 p-2 rounded-md transition-all;
+
+      &:hover {
+        @apply bg-gray-600;
+      }
+    }
+  }
+
+  &.selected {
+    @apply bg-slate-600;
+  }
+}
